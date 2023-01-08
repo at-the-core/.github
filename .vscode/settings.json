@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "LICENSE": true,
+    ".gitignore": true,
+    ".gitattributes": true,
+    ".vscode": true,
+    ".editorconfig": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "cSpell.customDictionaries": {
+    "project": {
+      "name": "project dictionary",
+      "path": "${workspaceRoot}/dictionary.txt",
+      "description": "Words used in this project",
+      "addWords": true
+    }
+  }
+}
