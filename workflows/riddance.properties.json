@@ -1,0 +1,5 @@
+{
+  "name": "Riddance Workflow",
+  "description": "Riddance integration starter workflow.",
+  "filePatterns": ["Dockerfile.integration"]
+}

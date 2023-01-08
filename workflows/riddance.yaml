@@ -1,0 +1,29 @@
+name: Build & test
+on:
+  push:
+    paths:
+      - "node-env/*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Check file existence
+      #   id: check_file
+      #   uses: jiangxin/file-exists-action@v1
+      #   with:
+      #     ref: ${{ github.sha }}
+      #     path: Dockerfile.integration
+      - name: Hello
+        run: echo "${{ github.repository }}:${{ github.sha }}"
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: at-the-core/node-env
+          ref: main
+        # if: steps.check_file.outputs.exists == 'true'
+      - name: Build container
+        run: docker build --file Dockerfile.integration --tag ${{ github.repository }}:${{ github.sha }}-${{ github.github.run_attempt }} .
+        # if: steps.check_file.outputs.exists == 'true'
+      - name: Run container
+        run: docker run --rm ${{ github.repository }}:${{ github.sha }}-${{ github.github.run_attempt }}
+        # if: steps.check_file.outputs.exists == 'true'
